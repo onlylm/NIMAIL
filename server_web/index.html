@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>匿邮 · 远程取信</title>
+  <link rel="stylesheet" href="/assets/viewer.css">
+</head>
+<body>
+  <div class="viewer-shell">
+    <header class="topbar">
+      <a class="brand" href="/c" aria-label="匿邮远程取信首页"><span class="brand-mark">匿</span><b>匿邮</b><span>远程取信</span></a>
+      <div class="readonly"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 8.1 7 10 4.2-1.9 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>只读访问</div>
+    </header>
+    <main>
+      <section id="entry" class="entry">
+        <div class="entry-panel"><span class="entry-key">⌑</span><h1>输入 CDK，查看对应邮件</h1><p>每个 CDK 只允许访问一个隐藏邮箱，不会显示 Apple ID、主邮箱或其他隐藏邮箱。</p>
+          <form id="form"><label for="cdk">CDK</label><div class="entry-row"><input id="cdk" autocomplete="off" spellcheck="false" placeholder="例如 NK-7K3M-N9QX-4R8P" required><button>打开邮箱</button></div><div id="error" class="error" aria-live="polite"></div></form>
+        </div>
+      </section>
+      <section id="inbox" class="inbox hidden">
+        <section class="mailbox-summary"><div class="summary-main"><div class="eyebrow">当前隐藏邮箱</div><h1 id="address">—</h1><div id="summary-meta" class="summary-meta">CDK 安全访问</div></div><div id="count" class="mail-count">0 封邮件</div></section>
+        <div id="lifecycle" class="lifecycle hidden"><div><b id="life-title"></b><span id="life-copy"></span></div><time id="countdown"></time></div>
+        <div class="mail-layout">
+          <aside class="mail-list" aria-label="邮件列表"><div class="list-toolbar"><span class="list-label">收件箱</span><button id="refresh" type="button" class="refresh-button" title="立即查询新邮件">查询新邮件</button></div><div id="messages"></div></aside>
+          <article class="mail-detail" aria-label="邮件内容">
+            <div id="empty" class="empty"><span>✉</span><b>选择一封邮件查看内容</b></div>
+            <div id="detail" class="hidden"><h2 id="subject">无主题</h2><div id="meta" class="detail-meta"></div>
+              <section id="otp-box" class="otp-panel hidden" aria-label="识别出的验证码"><div class="otp-copy"><div id="otp-label" class="otp-label">4 位数字验证码</div><div id="otp" class="otp-code"></div></div><button id="copy" type="button" class="copy-button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>复制验证码</span></button></section>
+              <div id="copy-status" class="copy-status" aria-live="polite"></div><div class="body-label">邮件正文</div><pre id="body" class="mail-body"></pre>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!--NIMAIL_COMPAT_CARDS-->
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/assets/viewer.js" defer></script>
+</body>
+</html>
